@@ -1,0 +1,81 @@
+.intro {
+  &__container {
+    margin: 0 auto;
+    max-width: 771px;
+    padding-top: 50px;
+  }
+  &__title {
+    font-weight: bold;
+    @include adaptive-font(60,20);
+    text-align: center;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    padding-bottom: 40px;
+  }
+}
+
+.sharkcoin-ido {
+  position: relative;
+  background: linear-gradient(180deg, #141830 0.01%, rgba(12, 13, 34, 0.9) 50.52%, #0C0D22 100%);
+  border-radius: 26px;
+  display: flex;
+  //flex-direction: column;
+  justify-content: center;
+  padding: 60px 0;
+  &__wrapper {
+    width: 60%;
+  }
+  &__title {
+    padding-bottom: 20px;
+    font-weight: bold;
+    //font-size: 30px;
+    @include adaptive-font(30,16);
+    text-align: center;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: #00EAFF;
+  }
+  &__coin {
+    position: absolute;
+    z-index: 10;
+    right: -89px;
+    top: 15px;
+  }
+}
+
+.day-counter {
+  display: flex;
+  justify-content: space-between;
+  &__num {
+    font-weight: bold;
+    //font-size: 60px;
+    @include adaptive-font(60,20);
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+  }
+  &__text {
+    font-weight: 300;
+    font-size: 12px;
+    @include adaptive-font(12,8);
+    letter-spacing: -0.04em;
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.join {
+  padding-top: 40px;
+  &__title {
+    padding-bottom: 20px;
+    //font-size: 14px;
+    @include adaptive-font(14,10);
+    text-align: center;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    font-weight: 400;
+  }
+  &__buttons {
+    display: flex;
+    justify-content: center;
+  }
+}

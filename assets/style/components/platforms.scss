@@ -1,0 +1,27 @@
+.platforms {
+  padding-top: 130px;
+  &__title {
+    font-weight: 600;
+    //font-size: 20px;
+    @include adaptive-font(20,16);
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 40px;
+    &_yellow {
+      color: #FDF193;
+    }
+  }
+  &__logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    &:first-child {
+      margin-bottom: 50px;
+    }
+  }
+}
