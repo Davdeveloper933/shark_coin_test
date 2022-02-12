@@ -13,6 +13,9 @@
 }
 
 @media screen and (max-width: 991px) {
+  .intro__container {
+    padding-top: 50px;
+  }
   .content {
     background-image: url('assets/img/backgrounds/mobile_bg.png');
     margin-top: 52px;
@@ -97,6 +100,13 @@
 }
 
 @media screen and (max-width: 375px) {
+  .footer__icons {
+    width: 90%;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 320px){
   .footer__icons {
     width: 75%;
     justify-content: center;
