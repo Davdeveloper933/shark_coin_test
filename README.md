@@ -1,4 +1,7 @@
-# shark_coin_test
+# технологии используемые в проекте:
+## SCSS
+## Nuxt.js
+## BEM metodology
 
 ## Build Setup
 
