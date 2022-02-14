@@ -4,6 +4,9 @@
   position: fixed;
   z-index: 200;
   width: 100%;
+  .button__connect {
+    padding: 17px 35px;
+  }
   &__mobile-wrapper {
     display: none;
     @media screen and (max-width: 1200px) {
