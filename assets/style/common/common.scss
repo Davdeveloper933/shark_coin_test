@@ -36,11 +36,32 @@ body {
   margin: 0;
 }
 
+button {
+  background: none;
+  border: 0;
+  color: inherit;
+  /* cursor: default; */
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-appearance: button; /* for input */
+  -webkit-user-select: none; /* for button */
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
 .content {
   background-image: url('assets/img/backgrounds/desktop_bg.png');
   background-size: cover;
   background-repeat: no-repeat;
   margin-top: 75px;
+  @media screen and (max-width: 1200px) {
+    margin-top: 52px;
+  }
+  @media screen and (max-width: 991px) {
+      background-image: url('assets/img/backgrounds/mobile_bg.png');
+  }
 }
 
 .button {
@@ -60,6 +81,10 @@ body {
     background: #FFFFFF;
     color: #0C0D22;
     margin-right: 10px;
+    @media screen and (max-width: 425px) {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
     &-img {
       width: 31px;
     }

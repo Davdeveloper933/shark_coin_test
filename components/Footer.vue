@@ -2,34 +2,23 @@
   <div class="footer">
     <div class="footer__wrapper">
       <div class="footer__icons">
-        <div class="footer__icons-item">
-          <span class="mdi mdi-twitter"></span>
-          <p class="footer__icons-item__text">@sharkraceclub</p>
-        </div>
-        <div class="footer__icons-item">
-          <span class="mdi mdi-instagram"></span>
-          <p class="footer__icons-item__text">@sharkraceclub</p>
-        </div>
-        <div class="footer__icons-item">
-          <span class="mdi mdi-youtube"></span>
-          <p class="footer__icons-item__text">@sharkraceclub</p>
-        </div>
-        <div class="footer__icons-item">
-          <span class="mdi mdi-facebook"></span>
-          <p class="footer__icons-item__text">@sharkraceclub</p>
-        </div>
-        <div class="footer__icons-item">
-          <span class="mdi mdi-linkedin"></span>
-          <p class="footer__icons-item__text">@sharkraceclub</p>
-        </div>
+        <a
+          class="footer__icons-item"
+          v-for="item in footerIconLinks"
+          :href="item.url"
+        >
+          <span class="mdi" :class="item.icon"></span>
+          <p class="footer__icons-item__text">{{ item.label }}</p>
+        </a>
       </div>
       <div class="footer__nav">
-        <div
+        <a
+          :href="item.url"
           class="footer__nav-link"
-          v-for="link in links"
+          v-for="item in footerNav"
         >
-          {{ link }}
-        </div>
+          {{ item.label }}
+        </a>
       </div>
       <div class="copyright">
         <p class="copyright__text">
@@ -47,10 +36,17 @@ export default {
   name: "Footer",
   data() {
     return {
-      links:[
-        'Support',
-        'Terms & conditions',
-        'WhitePaper'
+      footerNav:[
+        { label: 'Support',url: '#'},
+        { label: 'Terms & conditions',url: '#'},
+        { label: 'WhitePaper',url: '#'},
+      ],
+      footerIconLinks: [
+        { label: '@sharkraceclub', url:'#',icon:'mdi-twitter'},
+        { label: '@sharkraceclub', url:'#',icon:'mdi-instagram'},
+        { label: '@sharkraceclub', url:'#',icon:'mdi-youtube'},
+        { label: '@sharkraceclub', url:'#',icon:'mdi-facebook'},
+        { label: '@sharkraceclub', url:'#',icon:'mdi-linkedin'},
       ]
     }
   }

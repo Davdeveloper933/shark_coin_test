@@ -1,5 +1,8 @@
 .platforms {
   padding-top: 130px;
+  @media screen and (max-width: 768px) {
+    padding-top: 40px;
+  }
   &__title {
     font-weight: 600;
     //font-size: 20px;
@@ -11,17 +14,40 @@
     &_yellow {
       color: #FDF193;
     }
+    @media screen and (max-width: 768px) {
+        padding-bottom: 20px;
+    }
   }
   &__logos {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    @media screen and (max-width: 768px) {
+      justify-content: center;
+      img {
+        width: 170px;
+      }
+    }
+    @media screen and (max-width: 320px) {
+      img {
+        width: 150px;
+      }
+    }
   }
   &__item {
     display: flex;
     justify-content: space-between;
     &:first-child {
       margin-bottom: 50px;
+      @media screen and (max-width: 768px) {
+        margin-bottom: 30px;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      height: 165px;
     }
   }
 }

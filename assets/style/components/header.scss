@@ -6,11 +6,20 @@
   width: 100%;
   &__mobile-wrapper {
     display: none;
+    @media screen and (max-width: 1200px) {
+        display: block;
+    }
   }
   &__wrapper {
-    padding: 10px 45px;
-    max-width: 1721px;
+    padding: 10px 100px;
+    max-width: 1440px;
     margin: 0 auto;
+    @media screen and (min-width: 2400px) {
+      max-width: 1700px;
+    }
+    @media screen and (max-width: 1200px) {
+        display: none;
+    }
   }
   &__mobile-wrapper {
     padding: 10px 20px;
@@ -48,10 +57,11 @@
     flex-wrap: wrap;
   }
   &__item {
-    font-weight: 600;
+    font-weight: 500;
     @include adaptive-font(18,12);
     letter-spacing: -0.04em;
     margin-right: 30px;
+    text-transform: uppercase;
   }
 }
 
