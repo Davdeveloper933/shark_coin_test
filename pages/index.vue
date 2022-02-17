@@ -1,13 +1,9 @@
 <template>
-  <div class="wrapper">
-    <Header/>
     <div class="content">
       <Intro/>
       <Platforms/>
       <KeyFacts/>
     </div>
-    <Footer/>
-  </div>
 </template>
 
 <script>

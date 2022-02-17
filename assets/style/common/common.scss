@@ -5,6 +5,10 @@ $maxWidth: 1440;
   font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
 }
 
+* {
+  position: relative;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -29,6 +33,12 @@ a {
 img, video, iframe {
   display: block;
   max-width: 100%;
+}
+
+button, button:active, button:hover, button:focus, input, input:active, input:hover, input:focus, textarea, textarea:active, textarea:hover, textarea:focus {
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
 
 body {
@@ -64,6 +74,10 @@ button {
   }
 }
 
+.container {
+  margin: 0 auto;
+}
+
 .button {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
@@ -87,6 +101,7 @@ button {
     }
     &-img {
       width: 31px;
+      margin-right: 10px;
     }
   }
   &__connect {

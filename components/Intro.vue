@@ -17,7 +17,7 @@
             <h3 class="join__title">You can join and buy Sharkcoins  by using:</h3>
             <div class="join__buttons">
               <button class="button button__metamask">
-                <img :src="require('assets/img/fox.png')" class="button__metamask-img" alt="">
+                <img :src="require('assets/img/fox.svg')" class="button__metamask-img" alt="">
                 Metamask
               </button>
               <button class="button button__connect">wallet connect</button>

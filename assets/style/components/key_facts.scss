@@ -32,7 +32,7 @@
   &__title {
     font-weight: 600;
     //font-size: 20px;
-    @include adaptive-font(20,16);
+    @include adaptive-font(21,16);
     letter-spacing: -0.04em;
     text-transform: uppercase;
     text-align: center;

@@ -1,7 +1,13 @@
+@use 'sass:math';
+@import "./mixins/mixins.scss";
+@import "./variables.scss";
 @import './common/fonts';
 @import "./common/common";
+@import "./forms/forms";
 @import "components/header";
 @import "components/footer";
 @import "components/intro";
 @import "components/platforms";
 @import "components/key_facts";
+@import "pages/connected";
+

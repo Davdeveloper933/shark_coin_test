@@ -17,7 +17,7 @@
   }
   &__title {
     font-weight: bold;
-    @include adaptive-font(70,20);
+    @include adaptive-font(62,20);
     text-align: center;
     letter-spacing: -0.04em;
     text-transform: uppercase;

@@ -20,9 +20,9 @@
     </div>
     <div class="header__wrapper">
       <div class="nav-container">
-        <div class="logo">
+        <router-link to="/" class="logo">
           <HeaderSharkSVG/>
-        </div>
+        </router-link>
         <div class="nav">
           <a :href="item.url" class="nav__item" v-for="item in navList">{{ item.label }}</a>
         </div>

@@ -24,12 +24,16 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    { src: '~/assets/style/index.scss', lang: 'scss' },
+    {
+      src: "@/assets/style/index.scss",
+      lang: "scss"
+    },
     '@mdi/font/css/materialdesignicons.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: "~plugins/click-outside.js", ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

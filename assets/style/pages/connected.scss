@@ -1,0 +1,130 @@
+.yellow-text {
+  color: #FDF193;
+}
+
+.all-fees-included {
+  padding: 16px 0;
+  &__text {
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: -0.04em;
+    color: #858799;
+  }
+}
+
+.erc20 {
+  position: absolute;
+  background: #FFFFFF;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 11px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  color: #080A1C;
+  z-index: 2;
+  padding:1px 4px;
+  right: 60px;
+  top: -6px;
+}
+
+.buy-tokens {
+  margin: 0 auto;
+  &__overlay {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #141830 0.01%, rgba(12, 13, 34, 0.8) 68.37%, rgba(12, 13, 34, 0.9) 100%);
+    border-radius: 26px;
+    &__content {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 60px 22px 0 22px;
+    }
+    &__buttons {
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+      .button {
+        min-height: 51px;
+      }
+      .button__metamask {
+        margin: 0 0 10px 0;
+      }
+    }
+    &__text {
+      font-size: 14px;
+      line-height: 16px;
+      text-align: center;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      opacity: 0.7;
+    }
+  }
+  .button__connect {
+    padding: 15px 47px;
+  }
+}
+
+.binance {
+  margin-top: 170px;
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  &__logo {
+    display: flex;
+    justify-content: center;
+  }
+  &__text {
+    margin-bottom: 15px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: -0.04em;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+  }
+}
+
+.metamask-modal {
+  &__img {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    img {
+      width: 150px;
+    }
+  }
+  &__text {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: -0.04em;
+    color: #6D6E7A;
+    white-space: pre-line;
+    padding: 0 45px;
+  }
+  &__button {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+}
+
+.oops {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #0C0D22;
+}
