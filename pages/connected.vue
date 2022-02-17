@@ -67,8 +67,8 @@
         <div class="buy-tokens__select">
           <div class="mp-form__item">
             <div class="mp-form__label buy-tokens__label">
-              <span class="buy-tokens__label-text">You send</span>
-              <span class="buy-tokens__label-text">Tether (ERC20)</span>
+              <span class="buy-tokens__label-text">You get</span>
+              <span class="buy-tokens__label-text">SharkCoin</span>
             </div>
             <div class="mp-form__field">
               <ui-text-field
@@ -120,8 +120,9 @@
       max-width="458px"
       @close="closeModal"
     >
+<!--      первый вариант модалки-->
         <div class="metamask-modal">
-          <div class="metamask-modal__img">
+          <div class="metamask-modal__img metamask-modal__img-metamask">
             <img :src="require(`assets/img/fox.svg`)" alt="">
           </div>
           <h3 class="oops">Oops, sorry...</h3>
@@ -133,6 +134,37 @@
           </div>
         </div>
 
+<!--      второй вариант модалки-->
+<!--      <div class="metamask-modal something-wrong-modal">-->
+<!--        <div class="metamask-modal__img metamask-modal__img-error">-->
+<!--          <img :src="require(`assets/img/icon-error.svg`)" alt="">-->
+<!--        </div>-->
+<!--        <h3 class="oops">Something went wrong</h3>-->
+<!--        <p class="metamask-modal__text">-->
+<!--          You were not succeed to buy items, check up your internet connection / available balance / connection with your wallet and try again-->
+<!--        </p>-->
+<!--        <div class="metamask-modal__button">-->
+<!--          <button class="button button__connect" @click="closeOverLay">Try Again</button>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      третий вариант модалки-->
+<!--      <div class="metamask-modal something-wrong-modal">-->
+<!--        <div class="metamask-modal__img metamask-modal__img-error">-->
+<!--          <img :src="require(`assets/img/icon-success.svg`)" alt="">-->
+<!--        </div>-->
+<!--        <h3 class="oops">You’ve successfully purchased items-->
+<!--        </h3>-->
+<!--        <p class="metamask-modal__text">-->
+<!--          AYou can watch your accessories in a dressing room. There you can try them on every NFT Shark you’ve got and merge them creating completely new NFT-->
+<!--        </p>-->
+<!--        <div class="follow-on-soc-networks">-->
+<!--          <h3 class="follow-on-soc-networks__title">Follow us on social networks:</h3>-->
+<!--          <div class="follow-us-on-soc-networks__links">-->
+
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
 <!--      <div class="desc">-->
 <!--        <ul v-if="errors.length" class="list list&#45;&#45;none">-->
 <!--          <li v-for="(error, idx) in errors" :key="idx" class="">-->
@@ -190,6 +222,16 @@ export default {
       sendCoin: {
         symbol: ""
       },
+      theLinksOfSocialNetworks: [
+        { icon: '', url: '#'},
+        { icon: '', url: '#'},
+        { icon: '', url: '#'},
+        { icon: '', url: '#'},
+        { icon: '', url: '#'},
+        { icon: '', url: '#'},
+        { icon: '', url: '#'},
+        { icon: '', url: '#'},
+      ]
     }
   },
   methods:{

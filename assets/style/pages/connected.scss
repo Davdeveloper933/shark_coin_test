@@ -94,12 +94,22 @@
 }
 
 .metamask-modal {
+  .button {
+    padding: 15px 60px;
+  }
   &__img {
     display: flex;
     justify-content: center;
-    margin-bottom: 40px;
-    img {
-      width: 150px;
+    margin-bottom: 30px;
+    &-error {
+      img {
+        width: 100px;
+      }
+    }
+    &-metamask {
+      img {
+        width: 150px;
+      }
     }
   }
   &__text {
