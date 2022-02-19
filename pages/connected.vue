@@ -1,8 +1,9 @@
 <template>
   <div class="intro__container">
+    <CoinSVG class="sharkcoin-ido__coin"/>
     <h2 class="intro__title">Sharkcoin</h2>
-    <div class="buy-tokens">
-      <div class="buy-tokens__wrapper">
+    <div class="buy-tokens mp">
+      <div class="buy-tokens__wrapper mp-form">
         <div class="buy-tokens__overlay"
              v-if="clickedOnBuyToken"
              v-click-outside="closeOverLay"
@@ -29,7 +30,7 @@
           <div class="mp-form__item">
             <div class="mp-form__label buy-tokens__label">
               <span class="buy-tokens__label-text">You send</span>
-              <span class="buy-tokens__label-text">Tether (ERC20)</span>
+              <span class="buy-tokens__label-text buy-tokens__label-text__right">Tether (ERC20)</span>
             </div>
             <div class="mp-form__field">
               <ui-text-field
@@ -40,19 +41,20 @@
                 step="0.01"
               >
                 <template #append>
-                  <ui-select
-                    v-model="sendCoin"
-                    :options="sendCoinList"
-                  >
-                    <template #default="{ option }">
-                      <img
-                        v-if="option.symbol"
-                        :src="require(`~/assets/img/tokens/${option.symbol}.svg`)"
-                        alt=""
-                      >
-                      {{ option.symbol.toUpperCase() }}
-                    </template>
-                  </ui-select>
+<!--                  <div class="mp-form__field-wrapper">-->
+                    <ui-select
+                      v-model="sendCoin"
+                      :options="sendCoinList"
+                    >
+                      <template #default="{ option }">
+                        <img
+                          v-if="option.symbol"
+                          :src="require(`~/assets/img/tokens/${option.symbol}.svg`)"
+                          alt=""
+                        >
+                        {{ option.symbol.toUpperCase() }}
+                      </template>
+                    </ui-select>
                 </template>
               </ui-text-field>
             </div>
@@ -68,31 +70,33 @@
           <div class="mp-form__item">
             <div class="mp-form__label buy-tokens__label">
               <span class="buy-tokens__label-text">You get</span>
-              <span class="buy-tokens__label-text">SharkCoin</span>
+              <span class="buy-tokens__label-text buy-tokens__label-text__right">
+                          SharkCoin
+              </span>
             </div>
-            <div class="mp-form__field">
+            <div class="mp-form__field_gray">
               <ui-text-field
-                v-model.number="sendInput"
-                inputmode="decimal"
+                v-model="getInput"
+                inputmode="numeric"
                 type="number"
                 min="0"
-                step="0.01"
+                step="1"
               >
-                <template #append>
-                  <ui-select
-                    v-model="sendCoin"
-                    :options="sendCoinList"
-                  >
-                    <template #default="{ option }">
-                      <img
-                        v-if="option.symbol"
-                        :src="require(`~/assets/img/tokens/${option.symbol}.svg`)"
-                        alt=""
-                      >
-                      {{ option.symbol.toUpperCase() }}
+                    <template #append>
+<!--                      <img-->
+<!--                        v-if="option.symbol"-->
+<!--                        :src="require(`~/assets/img/tokens/${option.symbol}.svg`)"-->
+<!--                        alt=""-->
+<!--                      >-->
+<!--                      {{ option.symbol.toUpperCase() }}-->
+                      <div class="mp-form__card-get">
+                        <img
+                          :src="require(`~/assets/img/tokens/shrk.svg`)"
+                          alt=""
+                        >
+                        SHRK
+                      </div>
                     </template>
-                  </ui-select>
-                </template>
               </ui-text-field>
             </div>
           </div>
@@ -121,25 +125,25 @@
       @close="closeModal"
     >
 <!--      первый вариант модалки-->
-        <div class="metamask-modal">
-          <div class="metamask-modal__img metamask-modal__img-metamask">
-            <img :src="require(`assets/img/fox.svg`)" alt="">
-          </div>
-          <h3 class="oops">Oops, sorry...</h3>
-          <p class="metamask-modal__text">
-            The current browser does not support Metamask. If you want to use it, use the following browsers: Google Chrome, Internet Explorer
-          </p>
-          <div class="metamask-modal__button">
-            <button class="button button__connect" @click="closeOverLay">Use wallet connect</button>
-          </div>
-        </div>
+<!--        <div class="metamask-modal">-->
+<!--          <div class="metamask-modal__img metamask-modal__img-metamask">-->
+<!--            <img :src="require(`assets/img/fox.svg`)" alt="">-->
+<!--          </div>-->
+<!--          <h3 class="modal-subtitle">Oops, sorry...</h3>-->
+<!--          <p class="metamask-modal__text">-->
+<!--            The current browser does not support Metamask. If you want to use it, use the following browsers: Google Chrome, Internet Explorer-->
+<!--          </p>-->
+<!--          <div class="metamask-modal__button">-->
+<!--            <button class="button button__connect" @click="closeOverLay">Use wallet connect</button>-->
+<!--          </div>-->
+<!--        </div>-->
 
 <!--      второй вариант модалки-->
 <!--      <div class="metamask-modal something-wrong-modal">-->
 <!--        <div class="metamask-modal__img metamask-modal__img-error">-->
 <!--          <img :src="require(`assets/img/icon-error.svg`)" alt="">-->
 <!--        </div>-->
-<!--        <h3 class="oops">Something went wrong</h3>-->
+<!--        <h3 class="modal-subtitle">Something went wrong</h3>-->
 <!--        <p class="metamask-modal__text">-->
 <!--          You were not succeed to buy items, check up your internet connection / available balance / connection with your wallet and try again-->
 <!--        </p>-->
@@ -149,22 +153,30 @@
 <!--      </div>-->
 
 <!--      третий вариант модалки-->
-<!--      <div class="metamask-modal something-wrong-modal">-->
-<!--        <div class="metamask-modal__img metamask-modal__img-error">-->
-<!--          <img :src="require(`assets/img/icon-success.svg`)" alt="">-->
-<!--        </div>-->
-<!--        <h3 class="oops">You’ve successfully purchased items-->
-<!--        </h3>-->
-<!--        <p class="metamask-modal__text">-->
-<!--          AYou can watch your accessories in a dressing room. There you can try them on every NFT Shark you’ve got and merge them creating completely new NFT-->
-<!--        </p>-->
-<!--        <div class="follow-on-soc-networks">-->
-<!--          <h3 class="follow-on-soc-networks__title">Follow us on social networks:</h3>-->
-<!--          <div class="follow-us-on-soc-networks__links">-->
+      <div class="metamask-modal something-wrong-modal">
+        <div class="metamask-modal__img metamask-modal__img-error">
+          <img :src="require(`assets/img/icon-success.svg`)" alt="">
+        </div>
+        <h3 class="modal-subtitle">You’ve successfully purchased items
+        </h3>
+        <p class="metamask-modal__text">
+          AYou can watch your accessories in a dressing room. There you can try them on every NFT Shark you’ve got and merge them creating completely new NFT
+        </p>
+        <div class="modal-soc-networks">
+          <h3 class="modal-soc-networks__title">Follow us on social networks:</h3>
+          <div class="modal-soc-networks__links">
+            <a v-for="icon in theLinksOfSocialNetworks"
+               :href="icon.url"
+            >
+              <img
+                :src="require(`assets/img/social_icons/${icon.icon}.svg`)"
+                alt=""
+              >
+            </a>
+          </div>
+        </div>
+      </div>
 
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
 <!--      <div class="desc">-->
 <!--        <ul v-if="errors.length" class="list list&#45;&#45;none">-->
 <!--          <li v-for="(error, idx) in errors" :key="idx" class="">-->
@@ -214,6 +226,8 @@ export default {
       modal: null,
       errors: [],
       clickedOnBuyToken:false,
+      mintPassType: "",
+      mintPassList: ["gold", "silver", "bronze", "common"],
       sendInput: 0,
       sendCoinList: [
         {symbol:"usdt",amount:2000},
@@ -222,17 +236,31 @@ export default {
       sendCoin: {
         symbol: ""
       },
+      getInput: 0,
+      getInputUsd: [],
+      getCoinList: [
+        {symbol:"shrk",amount:2000},
+        {symbol:"shrk",amount:0.78}
+      ],
+      getCoin: {
+        symbol: ""
+      },
       theLinksOfSocialNetworks: [
-        { icon: '', url: '#'},
-        { icon: '', url: '#'},
-        { icon: '', url: '#'},
-        { icon: '', url: '#'},
-        { icon: '', url: '#'},
-        { icon: '', url: '#'},
-        { icon: '', url: '#'},
-        { icon: '', url: '#'},
+        { icon: 'discord', url: '#'},
+        { icon: 'twitter', url: '#'},
+        { icon: 'telegram', url: '#'},
+        { icon: 'instagram', url: '#'},
+        { icon: 'youtube', url: '#'},
+        { icon: 'medium', url: '#'},
+        { icon: 'linkedin', url: '#'},
+        { icon: 'facebook', url: '#'},
       ]
     }
+  },
+  mounted () {
+    this.mintPassType = this.mintPassList[0];
+    this.sendCoin = this.sendCoinList[0];
+    this.getCoin = this.getCoinList[0];
   },
   methods:{
     optionSymbol (symbol, lowercase = false) {
@@ -280,7 +308,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/style/mixins/mixins";
+@import "~@/assets/style/mixins/mixins";
+@import "~@/assets/style/variables";
 
 .buy-tokens {
   max-width: 384px;
@@ -302,6 +331,7 @@ export default {
     justify-content: center;
   }
   &__label {
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     &-text {
@@ -320,9 +350,6 @@ export default {
 
 /** Форма MintPass*/
 .mp {
-  max-width: 800px;
-  margin: auto;
-  padding: 0 15px;
 
   &-header {
     position: relative;
@@ -451,10 +478,19 @@ export default {
 
   /* Форма минтпасса */
   &-form {
+    &__field {
+      &_gray {
+        &::v-deep {
+          .ui-input-text input{
+            color: #858799;
+          }
+        }
+      }
+    }
     &__item {
       background: #121312;
       border-radius: 8px;
-      padding: 16px;
+      padding: 20px;
     }
 
     &__item + &__item {
@@ -464,7 +500,7 @@ export default {
     &__label {
       @include fontTTHoves("medium");
       color: #6c766f;
-      margin-bottom: 10px;
+      //margin-bottom: 10px;
     }
 
     &__bottom {
@@ -479,13 +515,15 @@ export default {
       background: #212321;
       border: 1px solid #121312;
       border-radius: 20px;
-      padding: 8px 12px 8px 12px;
+      padding: 8px;
       min-width: 116px;
       margin-left: -15px; // same ui-select component
       margin-right: -19px; // same ui-select component
-
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: -0.04em;
       img {
-        width: 16px;
+        //width: 16px;
         margin-right: 8px;
       }
     }
@@ -493,7 +531,13 @@ export default {
     &::v-deep {
       .ui-input-text {
         background: transparent;
-        padding-left: 0;
+        //padding-left: 0;
+        padding: 0;
+        &--append {
+          position: relative;
+          padding: 0 var(--input-padding-x);
+          padding-left: 0;
+        }
 
         &__input {
           padding-top: 0;
@@ -523,6 +567,10 @@ export default {
           min-height: 1px;
           width: 116px;
 
+          font-weight: 600;
+          font-size: 14px;
+          letter-spacing: -0.04em;
+          color: #FFFFFF;
           &--single {
             padding-right: 12px;
           }
@@ -549,104 +597,6 @@ export default {
         &__item:hover {
           background: lighten(#212321, 5%);
         }
-      }
-    }
-  }
-
-  /* Слайдер */
-  &-slider {
-    max-width: 850px;
-    width: 100%;
-    padding: 0 15px;
-    margin: 0 auto 110px;
-
-    &-nav {
-      position: absolute;
-      background: linear-gradient(180deg, #91ff87 0%, #44b550 100%);
-      box-shadow: 0 4px 0 #35833b;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      top: 50%;
-      text-align: center;
-      margin-top: -20px;
-
-      svg {
-        width: 16px;
-      }
-
-      &:not([disabled]):hover {
-        color: #fff;
-        background: linear-gradient(180deg, #44b550 0%, #44b550 100%);
-      }
-
-      &__prev {
-        left: 0;
-      }
-
-      &__next {
-        right: 0;
-      }
-    }
-
-    &__content {
-      @include respond-before("md") {
-        display: flex;
-        align-items: center;
-      }
-    }
-
-    &__fig {
-      margin-bottom: 15px;
-      padding: 0 50px;
-      position: relative;
-      text-align: center;
-
-      @include respond-before("md") {
-        width: 300px;
-        margin: 0;
-      }
-
-      img {
-        @include respond-before("sm") {
-          @include respond-to("md") {
-            max-width: 280px;
-          }
-        }
-      }
-    }
-
-    &__cnt {
-      padding-left: 30px;
-
-      @include respond-before("md") {
-        flex: 1;
-      }
-    }
-
-    &__title {
-      color: var(--color-secondary);
-      margin-bottom: 20px;
-      @include fontTTHoves("medium");
-      font-size: 24px;
-      text-transform: capitalize;
-    }
-
-    &__desc {
-      font-size: 16px;
-    }
-
-    &::v-deep {
-      .swiper-container {
-        padding-bottom: 30px;
-      }
-
-      .swiper-pagination-bullets {
-        bottom: 0;
-      }
-
-      .swiper-pagination-bullet {
-        background: var(--color-secondary);
       }
     }
   }

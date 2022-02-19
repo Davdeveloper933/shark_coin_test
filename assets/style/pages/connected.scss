@@ -69,6 +69,9 @@
   .button__connect {
     padding: 15px 47px;
   }
+  .ui-input-text {
+    padding: 0;
+  }
 }
 
 .binance {
@@ -129,12 +132,34 @@
   }
 }
 
-.oops {
-  font-weight: 800;
-  font-size: 18px;
-  line-height: 21px;
-  text-align: center;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  color: #0C0D22;
+.modal {
+  &-subtitle {
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: #0C0D22;
+  }
+  &-soc-networks {
+    &__links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &__title {
+      margin-top: 25px;
+      margin-bottom: 25px;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 16px;
+      text-align: center;
+      letter-spacing: -0.04em;
+      color: #0C0D22;
+    }
+  }
 }
+
+
+

@@ -1,3 +1,62 @@
+@import "../mixins/mixins.scss";
+/* CSS VARIABLES */
+:root {
+  --color-primary: #58C1B9;
+  --color-primary-rgb: 88, 193, 185;
+  --color-secondary: #FDFF87;
+  --color-secondary-rgb: 253, 255, 135;
+  --color-tertiary: #7358C1;
+  --color-tertiary-rgb: 115, 88, 193;
+  --color-gray: #4d4d4d;
+  --color-gray-light: #F8F8FB;
+  --color-black: #0b0c0e;
+  --color-dark: #161616;
+  --color-success: #fdff87;
+  --color-error: #ff7272;
+  --error-bg: #d83f3f;
+  --base-text: #fff;
+  --font-size: 16px;
+  --base-text-invert: #ffffff;
+  --body-bg: #26594C;
+  --btn-bg: var(----color-primary);
+  --btn-color: var(--base-text);
+  --btn-border: var(--color-gray);
+  --btn-bg-hover: var(--btn-bg);
+  --btn-color-hover: var(--btn-color);
+  --btn-border-hover: var(--color-primary);
+  --btn-primary-bg: var(--color-primary);
+  --btn-primary-color: #fff;
+  --btn-primary-border: var(--btn-primary-bg);
+  --btn-primary-color-hover: var(--btn-primary-color);
+  --btn-primary-border-hover: var(--btn-primary-border);
+  --menu-item-color: #606060;
+  --menu-item-active-color: #242426;
+  --placeholder-color: #{hexToRGB(#2b2626)};
+  --border-radius: 12px;
+  --th-padding-x: 24px;
+  --modal-padding: 30px;
+  --transition: .2s ease-in-out;
+
+  // inputs
+  --input-padding-y: 19px;
+  --input-padding-x: 19px;
+  --input-padding-y-mob: 19px;
+  --input-padding-x-mob: 19px;
+  --floating-input-padding-t: 24px;
+  --floating-input-padding-b: 14px;
+  --floating-input-padding-t-mob: 24px;
+  --floating-input-padding-b-mob: 14px;
+
+  @include respond-before("md") {
+    --font-size: 18px;
+    --modal-padding: 60px;
+  }
+
+  @include respond-before("xl") {
+    --th-padding-x: 40px;
+  }
+}
+
 $maxWidth: 1440;
 @mixin adaptive-font($pcSize, $mobSize) {
   $addSize: $pcSize - $mobSize;
